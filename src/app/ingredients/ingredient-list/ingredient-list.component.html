@@ -1,0 +1,42 @@
+<h2>Ingredients</h2>
+
+<app-ingredient-search (searchIngredientEvent)="getIngredientByName($event)"></app-ingredient-search>
+
+<div class="row m-0">
+  <div class="card col-4 p-0" *ngFor="let ingredient of ingredients$ | async">
+    <img src="https://www.thecocktaildb.com/images/ingredients/{{ingredient.strIngredient}}-Medium.png"
+      class="card-img-top" routerLink="/ingredients/details/{{ingredient.strIngredient}}">
+    <div class="card-body p-1">
+      <h5 class="card-title fw-bold">{{ingredient.strIngredient}}</h5>
+      <h6>{{ingredient.strType}}</h6>
+      <button class="btn btn-sm btn-light me-1"><img class="card_icon" src="../../assets/img/cart.png"></button>
+      <button class="btn btn-sm btn-light me-1" (click)="addToFavIngs(ingredient)"><img class="card_icon"
+          src="../../assets/img/like.png"></button>
+      <button class="btn btn-sm btn-light"><img class="card_icon" src="../../assets/img/forbidden.png"></button>
+      <button class="btn btn-sm btn-light plus_button" (click)="addChosenIng(ingredient)"><img class="card_icon plus"
+          src="../../assets/img/plus-sign.png"></button>
+      <img class="heart" src="../../../assets/img/heart.png">
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="showFullList$ | async">
+
+  <div class="row m-0">
+    <div class="card col-4 p-0" *ngFor="let ingredient of fullList$ | async">
+      <img src="https://www.thecocktaildb.com/images/ingredients/{{ingredient.strIngredient1}}-Medium.png"
+        class="card-img-top" routerLink="/ingredients/details/{{ingredient.strIngredient1}}">
+      <div class="card-body p-1">
+        <h5 class="card-title fw-bold mb-4">{{ingredient.strIngredient1}}</h5>
+        <button class="btn btn-sm btn-light me-1"><img class="card_icon" src="../../assets/img/cart.png"></button>
+        <button class="btn btn-sm btn-light me-1" (click)="addToFavIngs(ingredient)"><img class="card_icon"
+            src="../../assets/img/like.png"></button>
+        <button class="btn btn-sm btn-light"><img class="card_icon" src="../../assets/img/forbidden.png"></button>
+        <button class="btn btn-sm btn-light plus_button" (click)="addChosenIng(ingredient)"><img class="card_icon plus"
+            src="../../assets/img/plus-sign.png"></button>
+        <img class="heart" src="../../../assets/img/heart.png">
+      </div>
+    </div>
+  </div>
+
+</ng-container>

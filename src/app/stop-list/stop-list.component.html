@@ -1,0 +1,17 @@
+<img class="stop-list_logo" src="../../assets/img/stop.png">
+<span>Stop List</span>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="card col-4 p-0" *ngFor="let ingredient of stopList$ | async">
+      <img src="https://www.thecocktaildb.com/images/ingredients/{{ingredient.strIngredient}}-Medium.png"
+        class="card-img-top" alt="...">
+      <div class="card-body p-1">
+        <h5 class="card-title">{{ingredient.strIngredient}}</h5>
+        <h6>{{ingredient.strType}}</h6>
+        <button (click)="removeFromStopList(ingredient)" class="btn btn-sm btn-light"><img class="go"
+            src="../../assets/img/go.png"></button>
+      </div>
+    </div>
+  </div>
+</div>

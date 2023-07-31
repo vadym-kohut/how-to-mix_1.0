@@ -1,0 +1,16 @@
+<div *ngFor="let ingredient of ingredient$ | async">
+  <h2 class="mb-4">{{ingredient.strIngredient}}
+    <button class="btn btn-outline-dark" routerLink="/cocktails/by-ingredient/{{ingredient.strIngredient}}">Cocktails
+      with</button>
+  </h2>
+
+  <div class="row">
+    <div class="col-5">
+      <img class="ing_img"
+        src="https://www.thecocktaildb.com/images/ingredients/{{ingredient.strIngredient}}-Medium.png">
+    </div>
+    <div class="col-7 fw-bold">
+      <p>{{ingredient.strDescription}}</p>
+    </div>
+  </div>
+</div>

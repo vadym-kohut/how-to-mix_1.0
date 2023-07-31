@@ -1,0 +1,30 @@
+<h2>{{(cocktail$ | async)?.strDrink}}</h2>
+
+<div class="row my-4">
+
+  <div class="col-5">
+    <img [attr.src]="(cocktail$ | async)?.strDrinkThumb" class="cocktail_img">
+  </div>
+
+  <div class="col-7">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Ingredient</th>
+          <th scope="col">Measure</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ing of (ings$ | async) | keyvalue">
+          <td class="details__ing" routerLink="/ingredients/details/{{ing.key}}">{{ing.key}}</td>
+          <td>{{ing.value}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<h3>Instructions</h3>
+
+<p>{{(cocktail$ | async)?.strInstructions}}</p>

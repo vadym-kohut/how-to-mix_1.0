@@ -1,0 +1,30 @@
+h5,
+h6 {
+  text-align: center;
+}
+
+.card_icon {
+  height: 25px;
+}
+
+.heart {
+  height: 40px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.plus_button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.plus {
+  height: 50px;
+}
+
+.card:hover {
+  cursor: pointer;
+  border: 2px solid darkcyan;
+}
