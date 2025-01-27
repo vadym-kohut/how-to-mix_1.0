@@ -16,7 +16,6 @@ export class IngredientDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      console.log(params['name']);
       this.ingredient$ = this.IngDB.getIngredientByName(params['name']);
     });
   }

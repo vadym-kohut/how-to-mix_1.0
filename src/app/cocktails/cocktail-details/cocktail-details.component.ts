@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { CocktailDBService } from 'src/app/services/cocktail-db.service';
 
 @Component({
@@ -12,7 +12,6 @@ export class CocktailDetailsComponent implements OnInit {
 
   cocktail$!: Observable<any>;
   ings$!: Observable<any>;
-  measures$!: Observable<any>;
 
   constructor(
     private route: ActivatedRoute,
@@ -43,7 +42,7 @@ export class CocktailDetailsComponent implements OnInit {
         }, {});
         return ingsArr;
       }),
-
+        tap(x => console.log(x))
     );
   }
 

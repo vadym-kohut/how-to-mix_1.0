@@ -2,6 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, pluck, tap } from 'rxjs';
 
+export interface IngredientDetails {
+  idIngredient: string;
+  strIngredient: string;
+  strDescription: string;
+  strType: string;
+  strAlcohol: string;
+  strABV: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,14 +29,14 @@ export class IngredientDBService {
     );
   }
 
-  getIngredientByName(name: string) {
-    return this.http.get(
+  getIngredientByName(name: string): Observable<IngredientDetails> {
+    return this.http.get<{ ingredients: IngredientDetails }>(
       '/api/json/v1/1/search.php',
       {
         params: { i: name }
       }
     ).pipe(
-      pluck('ingredients')
+        map(data => data.ingredients)
     );
   }
 

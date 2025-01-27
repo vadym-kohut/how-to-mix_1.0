@@ -17,7 +17,6 @@ export class CocktailsByIngredientComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      console.log(params)
       this.cocktailsByIng$ = this.cocktailDB.getCocktailByIngredient(params['ing']);
       this.ingredient$ = params['ing'];
     });

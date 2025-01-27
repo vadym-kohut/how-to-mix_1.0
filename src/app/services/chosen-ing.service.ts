@@ -24,9 +24,6 @@ export class ChosenIngService {
     if (!idIngredientExists || !strIngredient1Exists) {
       this.chosenIngs$.next([...this.chosenIngs$.getValue(), ing]);
     }
-
-    console.log(idIngredientExists, strIngredient1Exists);
-
   }
 
   removeChosenIng(remIng: Ingredient) {
